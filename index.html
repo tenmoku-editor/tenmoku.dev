@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tenmoku: a free, native code editor</title>
+  <meta name="description" content="Tenmoku is a free, open-source code editor written in Rust with a GPU-rendered UI. Language servers, a debugger, Git, a terminal, vim mode and AI agents whose edits you review. macOS, Windows and Linux.">
+  <meta name="color-scheme" content="dark light">
+  <meta name="theme-color" content="#1c1613" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <link rel="canonical" href="https://tenmoku.dev/">
+  <link rel="icon" href="favicon.ico" sizes="48x48">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://tenmoku.dev/">
+  <meta property="og:title" content="Tenmoku: a free, native code editor">
+  <meta property="og:description" content="Open source (Apache-2.0), written in Rust, rendered on the GPU. The IDE parts you use, without the weight.">
+  <meta property="og:image" content="https://tenmoku.dev/assets/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="The Tenmoku editor with a Rust file, the project tree and a peek at a definition">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preload" href="assets/fonts/InstrumentSans-Regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <header class="top">
+    <a class="brand" href="./"><img src="assets/favicon.svg" alt="" width="28" height="28"> Tenmoku</a>
+    <nav aria-label="Site">
+      <a href="#features">Features</a>
+      <a href="#download">Download</a>
+      <a href="https://github.com/tenmoku-editor/tenmoku">GitHub</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <p class="eyebrow">Free and open source · Apache-2.0 · pre-1.0</p>
+      <h1>A code editor that feels like a native app, because it is one.</h1>
+      <p class="lede">Tenmoku is written in Rust on <a href="https://www.gpui.rs/">GPUI</a> and drawn by your GPU. It has the parts of an IDE you reach for every day, from language servers to a debugger, and no embedded web runtime.</p>
+      <div class="cta">
+        <a class="button primary" href="#download">Download</a>
+        <a class="button" href="https://github.com/tenmoku-editor/tenmoku">View the source</a>
+      </div>
+      <p class="note">macOS (Apple Silicon) · Windows x64 and ARM64 · Linux x86_64. No account, no sign-in.</p>
+    </section>
+
+    <figure class="shot">
+      <picture>
+        <source srcset="assets/hero.webp 1x, assets/hero@2x.webp 2x" type="image/webp">
+        <img src="assets/hero.png" width="1440" height="900" alt="Tenmoku in its dark theme: the project tree on the left, a Rust file from Tenmoku's own source with syntax highlighting, and a peek window showing a definition inline, with rust-analyzer in the status bar.">
+      </picture>
+      <figcaption>Tenmoku editing its own source: the project tree, rust-analyzer, and Peek Definition.</figcaption>
+    </figure>
+
+    <section id="features" class="features" aria-label="Features">
+      <article>
+        <h2>Fast and light</h2>
+        <p>Native from top to bottom: Metal on macOS, Direct3D on Windows, Vulkan on Linux. No Electron, no browser engine.</p>
+        <ul>
+          <li>A 1-million-line, 33&nbsp;MB file is on screen 200&nbsp;ms after launch (median).</li>
+          <li>Scrolling holds 120&nbsp;fps.</li>
+          <li>Idle, it uses under 1% of one CPU core.</li>
+        </ul>
+        <p class="small">Release build on an M3 Max MacBook Pro, from <a href="https://github.com/tenmoku-editor/tenmoku/blob/main/PERF.md">PERF.md</a>, which says how each number is measured.</p>
+      </article>
+
+      <article>
+        <h2>The IDE parts you use, without the weight</h2>
+        <ul>
+          <li><strong>Language servers</strong> for Rust, Python, TypeScript, Go, CSS, Java, Kotlin and C# (the servers on your PATH): completion, hover, go to definition, peek, references, rename, code actions, inlay hints, format on save.</li>
+          <li><strong>A debugger</strong> over the Debug Adapter Protocol: breakpoints, stepping, Variables, Watch and the call stack, for Rust, C and C++, Python, Go and Java.</li>
+          <li><strong>Rust tests</strong> run from the editor, with live counts and each test's result kept.</li>
+          <li><strong>Git</strong>: a log with its branch graph, line blame, a change bar in the gutter, diffs, stash and branches.</li>
+          <li>The <strong>project tree</strong>, find and replace across the project, a <strong>terminal</strong>, multiple cursors, sticky scroll, a minimap and Markdown preview.</li>
+        </ul>
+      </article>
+
+      <article>
+        <h2>Vim mode that behaves like Neovim</h2>
+        <p>Motions, operators, text objects, remaps, ex commands, macros and marks. It isn't Neovim's code: it's checked against it. A corpus of cases in the repository was recorded from Neovim 0.12.4, and the tests compare Tenmoku with those recordings byte for byte: the text, the cursor, the mode, the registers and the marks.</p>
+        <p class="small"><a href="https://github.com/tenmoku-editor/tenmoku/blob/main/docs/vim.md">What vim mode supports, and where it differs</a></p>
+      </article>
+
+      <article>
+        <h2>AI agents, in their own lane</h2>
+        <p>The Claude chat panel works with your own Anthropic API key. Its edits don't land in your files: they arrive as proposed changes, which you accept or reject hunk by hunk, and a turn can be reverted as a whole. The Agents panel lists each agent's lane and what it still has pending, and lines an agent wrote stay marked as its work.</p>
+      </article>
+
+      <article>
+        <h2>69 more languages, on demand</h2>
+        <p>Rust, Python, JavaScript, TypeScript, Go, C, Java, HTML, CSS, Markdown and the usual config formats are built in. Another 69, from C++, C#, Kotlin and Swift to SQL, Zig and Nix, come as WebAssembly grammars from a signed registry: the app checks the index's signature and each download's hash before it installs one.</p>
+      </article>
+
+      <article>
+        <h2>Everywhere you work</h2>
+        <ul>
+          <li><strong>macOS</strong> on Apple Silicon.</li>
+          <li><strong>Windows</strong> 10 (1903 or later) and 11, on x64 and ARM64: an installer per user, no administrator rights.</li>
+          <li><strong>Linux</strong> on x86_64: an AppImage or a tarball, on X11 or Wayland.</li>
+        </ul>
+      </article>
+    </section>
+
+    <section id="download" class="download">
+      <h2>Download Tenmoku <span class="js-version-tag"></span></h2>
+      <p>Each release has one download per platform, with a SHA-256 checksum beside it.</p>
+      <ul class="downloads">
+        <li><a class="button primary" data-asset="macos-arm64\.zip$" href="https://github.com/tenmoku-editor/tenmoku/releases/latest">macOS <span>Apple Silicon</span></a></li>
+        <li><a class="button primary" data-asset="windows-x64-Setup\.exe$" href="https://github.com/tenmoku-editor/tenmoku/releases/latest">Windows <span>x64 installer</span></a></li>
+        <li><a class="button primary" data-asset="windows-arm64-Setup\.exe$" href="https://github.com/tenmoku-editor/tenmoku/releases/latest">Windows <span>ARM64 installer</span></a></li>
+        <li><a class="button primary" data-asset="linux-x86_64\.AppImage$" href="https://github.com/tenmoku-editor/tenmoku/releases/latest">Linux <span>x86_64 AppImage</span></a></li>
+        <li><a class="button" data-asset="linux-x86_64\.tar\.gz$" href="https://github.com/tenmoku-editor/tenmoku/releases/latest">Linux <span>x86_64 tar.gz</span></a></li>
+      </ul>
+      <p class="small">Portable Windows zips, checksums and every past version are on the <a href="https://github.com/tenmoku-editor/tenmoku/releases">Releases page</a>.</p>
+      <div class="warn">
+        <p><strong>The builds aren't signed with a publisher certificate yet,</strong> so your OS warns the first time. On macOS, Gatekeeper says Apple could not verify the app: open it once, then choose <em>Open Anyway</em> in System Settings &gt; Privacy &amp; Security. On Windows, SmartScreen says it protected your PC: choose <em>More info</em> &gt; <em>Run anyway</em>. <a href="https://github.com/tenmoku-editor/tenmoku/blob/main/docs/release/platforms.md">Step by step for each platform</a>.</p>
+      </div>
+      <p class="small">Tenmoku is pre-1.0: expect rough edges, and settings may change between versions.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p><a href="https://github.com/tenmoku-editor/tenmoku">github.com/tenmoku-editor/tenmoku</a> · Licensed under <a href="https://github.com/tenmoku-editor/tenmoku/blob/main/LICENSE">Apache-2.0</a> · Free, no account.</p>
+    <p class="small">Fonts: Instrument Sans, Instrument Serif and Spline Sans Mono, under the <a href="assets/fonts/OFL-instrument-sans.txt">SIL Open Font License</a>. This site: <a href="https://github.com/tenmoku-editor/tenmoku.dev">tenmoku-editor/tenmoku.dev</a>.</p>
+  </footer>
+
+  <script>
+    // Point each download button at the latest release's matching file.
+    // Without this script, or if GitHub doesn't answer, they go to the
+    // Releases page.
+    (function () {
+      var links = document.querySelectorAll("a[data-asset]");
+      if (!window.fetch || !links.length) return;
+      fetch("https://api.github.com/repos/tenmoku-editor/tenmoku/releases/latest", {
+        headers: { Accept: "application/vnd.github+json" }
+      }).then(function (r) {
+        if (!r.ok) throw new Error(r.status);
+        return r.json();
+      }).then(function (rel) {
+        var assets = rel.assets || [];
+        links.forEach(function (a) {
+          var re = new RegExp(a.getAttribute("data-asset"));
+          for (var i = 0; i < assets.length; i++) {
+            if (re.test(assets[i].name)) {
+              a.href = assets[i].browser_download_url;
+              break;
+            }
+          }
+        });
+        if (rel.tag_name) {
+          document.querySelectorAll(".js-version-tag").forEach(function (el) {
+            el.textContent = rel.tag_name;
+          });
+        }
+      }).catch(function () {});
+    })();
+  </script>
+</body>
+</html>
